@@ -1,0 +1,10 @@
+bootJar {
+    archiveFileName = 'banln-api-server.jar'
+}
+
+dependencies {
+    implementation project(path: ":banln-common", configuration: 'default')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    compileClasspath('org.springframework.boot:spring-boot-starter-web')
+//    runtimeClasspath('org.springframework.boot:spring-boot-starter-web')
+}

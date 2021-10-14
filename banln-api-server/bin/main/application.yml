@@ -1,0 +1,9 @@
+server:
+  port: 18000
+  compression:
+    enabled: true
+  servlet:
+    session:
+      timeout: 7200
+      tracking-modes: cookie
+    contextPath: /

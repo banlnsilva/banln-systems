@@ -1,0 +1,48 @@
+server:
+  port: 18000
+  compression:
+    enabled: true
+  servlet:
+    session:
+      timeout: 7200
+      tracking-modes: cookie
+    contextPath: /
+
+#spring.jpa.show_sql=true
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL57Dialect
+#spring.jpa.properties.hibernate.dialect.storage_engine=innodb
+#spring.datasource.hikari.jdbc-url=jdbc:h2:mem:testdb;MODE=MYSQL
+#spring.datasource.hikari.username=sa
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect # mysql 디비 스키마문법을 사용할수 있게 한다
+        dialect.storage_engine: innodb
+        format_sql: true
+
+  datasource:
+#    url: jdbc:h2:~/test
+    hikari:
+      jdbc-url: jdbc:h2:mem:testdb;MODE=MYSQL
+      username: sa
+
+  h2:
+    console:
+      enabled: true
+
+  profiles:
+    include: oauth
+
+  session:
+    store: jdbc
+#  devtools:
+#    livereload:
+#      enabled: true

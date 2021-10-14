@@ -1,0 +1,5 @@
+rootProject.name = 'banln-systems'
+include 'banln-common'
+include 'banln-api-server'
+include 'banln-api-client'
+
