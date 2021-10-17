@@ -10,7 +10,7 @@ import java.util.Map;
 public class GetController {
 
     // http://localhost:8080/api/v1/get-api/hello
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @RequestMapping(value = "/hello", method = RequestMethod.GET) // 요즘은 이런방식으로 사용하지 않는다
     public String getHello() {
         return "Hello World!!";
     }
