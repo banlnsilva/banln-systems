@@ -26,6 +26,17 @@ public class ProductDaoImpl implements ProductDao {
         return productEntity;
     }
 
+//    // id->repository getOne, getById
+//    Optional<User> optional = userRepository.findById(id);
+//
+//// user -> userApiResponse return
+//return optional.map(user -> response(user))
+//            .orElseGet(
+//                   ()->Header.ERROR("데이터 없음")
+//            );
+//[출처] [패캠] 스프링부트 강의 - 알게된 것들|작성자 코딩하는 엘모
+
+
     /**
      * Repository에서 기본적으로 제공하는 대표적인 메소드
      */
