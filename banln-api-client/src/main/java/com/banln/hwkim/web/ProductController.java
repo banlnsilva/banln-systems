@@ -3,12 +3,12 @@ package com.banln.hwkim.web;
 import com.banln.hwkim.common.Constants;
 import com.banln.hwkim.common.exception.BanlnHubException;
 import com.banln.hwkim.data.dto.ProductDto;
+import com.banln.hwkim.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
