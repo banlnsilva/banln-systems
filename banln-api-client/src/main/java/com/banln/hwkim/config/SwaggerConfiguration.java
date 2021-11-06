@@ -25,9 +25,10 @@ public class SwaggerConfiguration {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("BANLN API Info")
-                .description("BANLN API 서버 설명부분")
+                .title("Banln Hub OpenAPI Test with Swagger")
+                .description("설명 부분")
                 .version("1.0.0")
                 .build();
+
     }
 }
