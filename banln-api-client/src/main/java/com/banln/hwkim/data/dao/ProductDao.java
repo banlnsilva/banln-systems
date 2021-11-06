@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface ProductDao {
     ProductEntity saveProduct(ProductEntity productEntity);
-    Optional<ProductEntity> getProduct(String productId);
+    ProductEntity getProduct(String productId);
 }

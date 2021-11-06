@@ -21,10 +21,17 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Optional<ProductEntity> getProduct(String productId) {
-        Optional<ProductEntity> productEntity = productRepository.findById(productId);
+    public ProductEntity getProduct(String productId) {
+        ProductEntity productEntity = productRepository.findById(productId)
+                .orElse(new ProductEntity());
+//        ProductEntity productEntity = productRepository.findById(productId)
+//                .orElseThrow();
         return productEntity;
     }
+//    public Optional<ProductEntity> getProduct(String productId) {
+//        Optional<ProductEntity> productEntity = productRepository.findById(productId);
+//        return productEntity;
+//    }
 
 //    // id->repository getOne, getById
 //    Optional<User> optional = userRepository.findById(id);
