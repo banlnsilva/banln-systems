@@ -3,6 +3,7 @@ package com.banln.hwkim.data.dto;
 import lombok.*;
 
 //@Data
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
