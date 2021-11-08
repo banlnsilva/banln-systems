@@ -64,12 +64,22 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-    // JWT 토큰에서 회원 구별 정보 추출
+    // JWT 토큰으로 인증 정보 조회
     public Authentication getAuthentication(String token) {
         logger.info("[getAuthentication] 토큰 인증 정보 조회 시작");
         UserDetails userDetails = userDetailsService.loadUserByUsername(this.getUserPk(token));
         logger.info("[getAuthentication] 토큰 인증 정보 조회 완료, UserDetails UserName : {}", userDetails.getUsername());
         return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
+    }
+
+    // JWT 토큰에서 회원 구별 정보 추출
+    public String getUserPk(String token) {
+        logger.info("[getUserPk] 토큰 기반 회원 구별 정보 추출");
+        String info = Jwts.parserBuilder().setSigningKey(accessKey).build().parseClaimsJws(token).getBody().getSubject();
+
+        logger.info("[getUserPk] 토큰 기반 회원 구별 정보 추출 완료, info : {}", info);
+
+        return info;
     }
 
     /**

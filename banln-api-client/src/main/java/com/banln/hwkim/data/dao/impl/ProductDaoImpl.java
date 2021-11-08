@@ -4,6 +4,9 @@ import com.banln.hwkim.data.dao.ProductDao;
 import com.banln.hwkim.data.entity.ProductEntity;
 import com.banln.hwkim.data.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,21 +14,27 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class ProductDaoImpl implements ProductDao {
-    ProductRepository productRepository;
+    private final Logger logger = LoggerFactory.getLogger(ProductDaoImpl.class);
+
+    private final ProductRepository productRepository;
 
     @Override
     public ProductEntity saveProduct(ProductEntity productEntity) {
-        productRepository.save(productEntity);
+        logger.info("[saveProduct] product 정보 저장. productId : {}", productEntity.getProductId());
 
-        return productEntity;
+        ProductEntity productEntityResult = productRepository.save(productEntity);
+        logger.info("[saveProduct] product 정보 저장완료. productId : {}", productEntityResult.getProductId());
+
+        return productEntityResult;
     }
 
     @Override
     public ProductEntity getProduct(String productId) {
-        ProductEntity productEntity = productRepository.findById(productId)
-                .orElse(new ProductEntity());
-//        ProductEntity productEntity = productRepository.findById(productId)
-//                .orElseThrow();
+        logger.info("[getProduct] product 정보 요청. productId : {}", productId);
+
+        ProductEntity productEntity = productRepository.findById(productId).orElse(new ProductEntity());
+//        ProductEntity productEntity = productRepository.findById(productId).orElseThrow();
+
         return productEntity;
     }
 //    public Optional<ProductEntity> getProduct(String productId) {
